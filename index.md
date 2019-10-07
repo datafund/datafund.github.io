@@ -1,6 +1,6 @@
 # How to integrate consent receipt libraries into your solutions
 
-[TOC]
+{:toc}
 
 ## About Consent Receipts
 
