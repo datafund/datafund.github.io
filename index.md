@@ -1,5 +1,7 @@
 # How to integrate consent receipt libraries into your solutions
+{: .no_toc}
 
+1. TOC
 {:toc}
 
 ## About Consent Receipts
