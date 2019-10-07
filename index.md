@@ -1,80 +1,98 @@
-# CONSENT RECEIPT SUITE
-### Overview
+# How to integrate consent receipt libraries into your solutions
 
-Personally identifiable information (PII) is exchanged by different parties for different uses. E.g., retail shops need PII to target consumers with more specific offers; hospitals need PII to treat their patients etc.
+[TOC]
 
-Certain uses of PII require the person that the PII belongs to (PII principal) to give consent to the entity controlling / using the PII (PII controller). Otherwise the usage of the PII might be illegal (as per GDPR).
+## About Consent Receipts
 
-The PII principal benefits from having a "receipt" of the given consent (consent receipt or CR) in his possession. This allows him to have an overview of how his PII is being used and possibly exercise some other rights over this data.
+With GDPR, the need to have proper processes in place related to personally identifiable data (PII) became a necessity. Consent by the individual is needed in many cases, when PII are processed. Consent receipts are a way to record a given consent in a standardized way.
 
-The PII controller is required by law (at least in EU and referring to GDPR) to have consent for uses of PII under his control (that does not fall under some some other grounds for processing). Therefore, the PII controller benefits from having a CR in his records, (especially if it is digitally signed by the PII principal, giving it greater weight).
+Having a consent receipt is good for both the individual as well as for the data controller. It is a record of agreement about usage of PII that both parties can refer to. Additional solutions can also be offered on top of these records -- opening a way towards more advanced data economy services.
 
-Note: a "Consent receipt" can be issued even if no consent for PII is needed. In that case it acts in an informative manner.
+Datafund specializes in developing the solutions, so you don't have to. Consent receipts were implemented according to Kantara specification, funded by the Sitra fund. And are now available open source and free for you to use.
 
-### Specifications
+Kantara is developing the specification further and we plan to update it, when a new version is accepted. In addition to providing a Kantara compliant consent receipt, we have also added decentralized Swarm storage and blockchain signing of the transactions to the packages. The signing features offer proof of consent, that is not legally required, but should became standard in our belief. Decentralized Swarm storage allows the consent receipts to be immediately stored in a secure and always-on storage, where the individual and the data controller can access them as needed.
 
-General flow of the Consent Receipt:
+## Consent Receipt related Packages available
 
-![image](https://user-images.githubusercontent.com/1554520/59093151-86c5ba80-8913-11e9-9bba-0a67af598133.png)
-
-The "CR JSONSchema" defines the structure of a CR. Starting from the schema, the PII Controller can generate a "proposed CR JSON", by adding values to all the relevant fields. The "proposed CR JSON" should be presented to the PII Principal in an appropriate way (human readable and possibly using one of the developed modules). PII Principal can  give his consent, after which a "CR JWT" is generated which both the Controller and Principal can save (to different variants of storage).
-
-Building upon the [React JSONSchema framework](https://mozilla-services.github.io/react-jsonschema-form/), the presentation of CR on screen in either the human readable and read only form or the more flexible editable form used by the PII controller will be achieved by a combination of CR JSONSchema (defining the structure and allowed values), UISchema (defining the controls / menus displayed on screen), formData (defining the default / displayed values) and CSS styles (defining the look of the UI).
-
-![image](https://user-images.githubusercontent.com/1554520/59093196-a230c580-8913-11e9-9a45-254204574f73.png)
-
-All the parts are saved in the form of a JSON project file, that can be used as a template.
-
-Packages:
-- consent receipt generator package
-- consent receipt viewer package
-- consent receipt summary viewer package
-- API server package
+| Description                                                  | GitHub                                                   | npm.js                                                       | Web     | Swarm     |
+| ------------------------------------------------------------ | -------------------------------------------------------- | ------------------------------------------------------------ | ---- | ---- |
+| Consent Receipt Generator                                    | [dr-generator](https://github.com/datafund/dr-generator) | [@datafund/consent-generator](https://www.npmjs.com/package/@datafund/consent-generator) |      |      |
+| Consent Receipt Viewer                                       | [dr-viewer](https://github.com/datafund/dr-viewer)       | [@datafund/consent-viewer](https://www.npmjs.com/package/@datafund/consent-viewer) |      |      |
+| Consent Receipt Summary Viewer                               | [dr-summary](https://github.com/datafund/dr-summary)                                               | [@datafund/consents-summary](https://www.npmjs.com/package/@datafund/consents-summary) |      |      |
+| A helper library for working with Consent Receipts on the blockchain | [datareceipt.js](https://github.com/datafund/datareceipt.js)                                           | [@datafund/data-receipt](https://www.npmjs.com/package/@datafund/data-receipt) |      |      |
+| Sample React and integration for using consent on the blockchain | [df-fds-consent-manager](https://github.com/datafund/df-fds-consent-manager)                                   |                                                              |      |      |
+| Sample node.js API server implementation for generating consent token (JWT) | [dr-api-server](https://github.com/datafund/dr-api-server)                                            |                                                              |      |      |
+| Consent Receipt Suite Demo app demonstrating functionalities of the  generator, viewer, blockchain transactions and Swarm storage | [dr-editor-sample](https://github.com/datafund/dr-editor-sample)                                         |                                                              | [Web link](https://kantara-cr-demo.datafund.io/#/)     | [Swarm link](https://swarm.fairdatasociety.org/bzz:/821873b204bcfbcb33dc44a5caff691675b7a468d47bca82fa3f6e2470b39f9f/#/)     |
 
 
-### Design guidelines
-### References
+The table shows the packages available, that you can use and integrate into your application. Each one can be used individually, but together they offer all the functionalities.
 
-- [Kantara Consent Receipt spec v1.1](https://kantarainitiative.org/file-downloads/consent-receipt-specification-v1-1-0/)
-- [CR v1.1 JSONSchema version](https://kantarainitiative.org/confluence/download/attachments/76447870/CR%20Schema%20v1_1_0%20DRAFT%206.json?version=2&modificationDate=1511151073000&api=v2)
-- See [react-jsonschema-form](https://mozilla-services.github.io/react-jsonschema-form/) for reference about using JSONSchema, UISchema, formData
+The main packages are in the form of React components that can be included in your software.
 
-## CONSENT RECEIPT GENERATOR PACKAGE
+The objective of this howto is to give you enough of an overview of the packages and how they fit together for you to be able to use them in your own software.
 
-Consent receipt generator package contains a graphical user interface to edit the JSONSchema, UISchema and formData parts of the consent receipt. A configuration can be exported as a project file, that contains all three components and can be used in the later process. It is meant to be used by the data user (PII Controller).
+### Consent Receipt Generator
 
-Available at: <https://github.com/datafund/dr-generator>
+The Consent Receipt Generator is meant to be used for editing the contents of the consent receipt.
 
-## CONSENT RECEIPT VIEWER PACKAGE
+### Consent Receipt Viewer
 
-Consent receipt viewer package contains a graphical user interface to view a proposed consent receipt or an already accepted consent receipt. It is meant to be used by the individual (PII Principal).
+The Consent Receipt Viewer is meant for displaying a human readable consent receipt from the JSON data.
 
-Available at: <https://github.com/datafund/dr-viewer>
+### Consent Receipt Summary Viewer
 
-## CONSENT RECEIPT SUMMARY VIEWER PACKAGE
+The Consent Receipt Summary Viewer is meant for displaying most important summary data of several consent receipts at once, in a tabular view.
 
-Consent receipt summary viewer package contains graphical user interface to view summary information from a number of consent receipts in some storage. It is meant to be used by the individual (PII Principal).
+### DataReceipt.js
+Is a helper library for working with Consent Receipts on the blockchain. It encapsulates creation of FDS accounts, creation of Consent Receipts JWT tokens, sending over Swarm, decoding and verifying tokens with additional layer to support Consent Manager smart contract and consent signing and verification of Consent smart contract on blockchain. It sits on top of fds.js.
+`Consent Manager` smart contract creates `Consent` contracts and acts as interface to them.
 
-Available at: <https://github.com/datafund/dr-summary>
+See details on [GitHub](https://github.com/datafund/datareceipt.js).
 
-## API SERVER IMPLEMENTATION
 
-API server implementation is an example of a server for signing a proposed consent receipt and making it into a consent receipt JWT.
-**NOTE: It is not meant to be used in a production environemnt as-is, as it should not be considered secured enough. Consider it a reference implementation.**
+### Sample React and integration for using consent on the blockchain
 
-Available at: <https://github.com/datafund/dr-api-server>
+A sample how to initialize fds.js and datareceipt.js. Sample consent is generated, signed and sent to another account. It's meant as a simplified reference implementation.
 
-## SAMPLE EDITOR VIEWER
+### Sample node.js API server implementation for generating consent token (JWT)
 
-Sample editor viewer is a reference implementation of all the modules budled into one application. It is meant for reference and for demos.
+API server implementation is an example of a server for signing a proposed consent receipt and making it into a consent receipt JWT. It is runs in Node.js environment. **NOTE: It is not meant to be used in a production environemnt as-is, as it should not be considered secured enough. Consider it a reference implementation. Putting private key in .js script is NOT considereg secure**
 
-Available at: <https://github.com/datafund/dr-editor-sample>
+### Consent Receipt Suite Demo
 
-## FDS.JS INTEGRATION SAMPLE
+The Consent Receipt Suite Demo is a reference implementation of all the modules bundled into one application. It is meant for demos.
 
-Implementation of how to send your consents securely to other FDS users.
+Contains all modules, editor, generator, summary viewer, consent viewer and uses uses datareceipt.js and fds.js.
 
-Available at: <https://github.com/datafund/df-fds-consent-manager>
 
-## FAIRDROP INTEGRATION
-Upcoming ...
+#### Decentralized consent receipt generator and viewer
+Consent Receipt Suite is deployed on Swarm, is censorship resistant and anyone can use it.
+
+To deploy it yourself
+run `npm run build`
+
+then upload it to Swarm through gateway (if you don't run your own swarm node)
+`swarm.exe --bzzapi https://swarm.fairdatasociety.org --defaultpath index.html --recursive up .\build\`
+
+Latest one is available at https://swarm.fairdatasociety.org/bzz:/821873b204bcfbcb33dc44a5caff691675b7a468d47bca82fa3f6e2470b39f9f/#/
+
+## Putting it all together
+
+The modules can be used independently or in concert. The Sample Demo app was constructed with intent to demonstrate usability and as a reference implementation.
+
+If you encounter an issues, have any questions open an issue on GitHub in https://github.com/datafund/dr-editor-sample.
+
+## References / additional information
+
+- [TLDR: Consent Receipt Suite — what is it about … ?](https://blog.datafund.net/tldr-consent-receipt-suite-what-is-it-about-88c8da9531b7)
+- [Datafund Github](https://github.com/datafund)
+- [Datafund webpage](https://datafund.io/)
+- [Kantara initiative](https://kantarainitiative.org)
+- [Kantara initiative consent receipt specification](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification)
+- [Sitra Finnish Innovation Fund](https://www.sitra.fi/en/)
+- [Sitra on Fair data economy](https://www.sitra.fi/en/topics/fair-data-economy/)
+- [Fair Data Society webpage](https://fairdatasociety.org/)
+- [Fair Data Society Github](https://github.com/fairDataSociety)
+- [Fairdrop personal storage Dapp (test version)](https://staging.fairdrop.xyz/)
+- [Chattie chat Dapp (test version)](https://staging.chattie.xyz/)
+- [Chattie Dapp Howto blog](https://blog.datafund.net/chattie-or-how-to-build-a-decentralised-chat-app-in-10-minutes-72ba816b88)
