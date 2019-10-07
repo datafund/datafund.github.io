@@ -1,7 +1,11 @@
 ---
 layout: default
+title: Datafund Consent Receipt Suite
 nav_order: 2
 ---
+
+1. TOC
+{:toc}
 
 # About Consent Receipt Suite
 
@@ -9,8 +13,7 @@ nav_order: 2
 # How to integrate consent receipt libraries into your solutions
 {: .no_toc}
 
-1. TOC
-{:toc}
+
 
 ## About Consent Receipts
 
