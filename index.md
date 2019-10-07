@@ -94,8 +94,7 @@ The Consent Receipt Suite Demo is a reference implementation of all the modules 
 
 Contains all modules, editor, generator, summary viewer, consent viewer and uses uses datareceipt.js and fds.js.
 
-#### Decentralized consent receipt generator and viewer
-Consent Receipt Suite is deployed on Swarm, is censorship resistant and anyone can use it.
+#### Decentralized Consent Receipt Suite Demo
 
 To deploy it yourself
 run `npm run build`
