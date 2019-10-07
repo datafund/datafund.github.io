@@ -1,3 +1,11 @@
+---
+layout: default
+nav_order: 2
+---
+
+# About Consent Receipt Suite
+
+
 # How to integrate consent receipt libraries into your solutions
 {: .no_toc}
 
