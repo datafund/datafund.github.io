@@ -7,13 +7,10 @@ nav_order: 2
 1. TOC
 {:toc}
 
-# About Consent Receipt Suite
-
-
-# How to integrate consent receipt libraries into your solutions
+# Table of Contents
 {: .no_toc}
 
-
+# About Consent Receipt Suite
 
 ## About Consent Receipts
 
@@ -25,7 +22,9 @@ Datafund specializes in developing the solutions, so you don't have to. Consent 
 
 Kantara is developing the specification further and we plan to update it, when a new version is accepted. In addition to providing a Kantara compliant consent receipt, we have also added decentralized Swarm storage and blockchain signing of the transactions to the packages. The signing features offer proof of consent, that is not legally required, but should became standard in our belief. Decentralized Swarm storage allows the consent receipts to be immediately stored in a secure and always-on storage, where the individual and the data controller can access them as needed.
 
-## Consent Receipt related Packages available
+# How to integrate consent receipt libraries into your solutions
+
+The table shows the Consent Receipt Suite packages available, that you can use and integrate into your application. Each one can be used individually, but together they offer all the functionalities.
 
 | Description                                                  | GitHub                                                   | npm.js                                                       | Web     | Swarm     |
 | ------------------------------------------------------------ | -------------------------------------------------------- | ------------------------------------------------------------ | ---- | ---- |
@@ -38,11 +37,9 @@ Kantara is developing the specification further and we plan to update it, when a
 | Consent Receipt Suite Demo app demonstrating functionalities of the  generator, viewer, blockchain transactions and Swarm storage | [dr-editor-sample](https://github.com/datafund/dr-editor-sample)                                         |                                                              | [Web link](https://kantara-cr-demo.datafund.io/#/)     | [Swarm link](https://swarm.fairdatasociety.org/bzz:/821873b204bcfbcb33dc44a5caff691675b7a468d47bca82fa3f6e2470b39f9f/#/)     |
 
 
-The table shows the packages available, that you can use and integrate into your application. Each one can be used individually, but together they offer all the functionalities.
-
 The main packages are in the form of React components that can be included in your software.
 
-The objective of this howto is to give you enough of an overview of the packages and how they fit together for you to be able to use them in your own software.
+The objective of this part is to give you enough of an overview of the packages and how they fit together for you to be able to use them in your own software.
 
 ### Consent Receipt Generator
 
@@ -62,7 +59,6 @@ Is a helper library for working with Consent Receipts on the blockchain. It enca
 
 See details on [GitHub](https://github.com/datafund/datareceipt.js).
 
-
 ### Sample React and integration for using consent on the blockchain
 
 A sample how to initialize fds.js and datareceipt.js. Sample consent is generated, signed and sent to another account. It's meant as a simplified reference implementation.
@@ -76,7 +72,6 @@ API server implementation is an example of a server for signing a proposed conse
 The Consent Receipt Suite Demo is a reference implementation of all the modules bundled into one application. It is meant for demos.
 
 Contains all modules, editor, generator, summary viewer, consent viewer and uses uses datareceipt.js and fds.js.
-
 
 #### Decentralized consent receipt generator and viewer
 Consent Receipt Suite is deployed on Swarm, is censorship resistant and anyone can use it.
@@ -95,7 +90,7 @@ The modules can be used independently or in concert. The Sample Demo app was con
 
 If you encounter an issues, have any questions open an issue on GitHub in https://github.com/datafund/dr-editor-sample.
 
-## References / additional information
+# References / additional information
 
 - [TLDR: Consent Receipt Suite — what is it about … ?](https://blog.datafund.net/tldr-consent-receipt-suite-what-is-it-about-88c8da9531b7)
 - [Datafund Github](https://github.com/datafund)
