@@ -4,13 +4,21 @@ title: Datafund Consent Receipt Suite
 nav_order: 2
 ---
 
-1. TOC
-{:toc}
-
 # Table of Contents
 {: .no_toc}
 
+1. TOC
+{:toc}
+
 # About Consent Receipt Suite
+
+A general overview of the Consent Receipt Suite can also be found in the blog post [TLDR: Consent Receipt Suite — what is it about … ?](https://blog.datafund.net/tldr-consent-receipt-suite-what-is-it-about-88c8da9531b7), along with videos demoing its functionalities.
+
+Consent Receipts from the point of view of the individual are explained in the blog post [You get a receipt for groceries, why not data?](https://blog.datafund.net/you-get-a-receipt-for-groceries-why-not-data-cf55a8db81c2).
+
+Developers should also read the blog post [Developers — move your apps towards GDPR-compliance, easy, fast & free](https://blog.datafund.net/developers-move-your-apps-towards-gdpr-compliance-easy-fast-free-af5d61f1a80e) to rationalize the usage of the Suite.
+
+The motivation for companies is described in the blog post [Take your company into the fair data economy](https://blog.datafund.net/take-your-company-into-the-fair-data-economy-965598d32412).
 
 ## About Consent Receipts
 
@@ -21,6 +29,19 @@ Having a consent receipt is good for both the individual as well as for the data
 Datafund specializes in developing the solutions, so you don't have to. Consent receipts were implemented according to Kantara specification, funded by the Sitra fund. And are now available open source and free for you to use.
 
 Kantara is developing the specification further and we plan to update it, when a new version is accepted. In addition to providing a Kantara compliant consent receipt, we have also added decentralized Swarm storage and blockchain signing of the transactions to the packages. The signing features offer proof of consent, that is not legally required, but should became standard in our belief. Decentralized Swarm storage allows the consent receipts to be immediately stored in a secure and always-on storage, where the individual and the data controller can access them as needed.
+
+## Workings of Consent Receipt suite
+
+![image](https://user-images.githubusercontent.com/1554520/59093151-86c5ba80-8913-11e9-9bba-0a67af598133.png)
+
+The "CR JSONSchema" defines the structure of a CR. Starting from the schema, the PII Controller can generate a "proposed CR JSON", by adding values to all the relevant fields. The "proposed CR JSON" should be presented to the PII Principal in an appropriate way (human readable and possibly using one of the developed modules). PII Principal can  give his consent, after which a "CR JWT" is generated which both the Controller and Principal can save (to different variants of storage).
+
+Building upon the [React JSONSchema framework](https://mozilla-services.github.io/react-jsonschema-form/), the presentation of CR on screen in either the human readable and read only form or the more flexible editable form used by the PII controller will be achieved by a combination of CR JSONSchema (defining the structure and allowed values), UISchema (defining the controls / menus displayed on screen), formData (defining the default / displayed values) and CSS styles (defining the look of the UI).
+
+![image](https://user-images.githubusercontent.com/1554520/59093196-a230c580-8913-11e9-9a45-254204574f73.png)
+
+All the parts are saved in the form of a JSON project file, that can be used as a template.
+
 
 # How to integrate consent receipt libraries into your solutions
 
