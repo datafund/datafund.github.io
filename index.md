@@ -2,6 +2,7 @@
 layout: default
 title: Datafund Consent Receipt Suite
 nav_order: 2
+tags: consent, documentation, datafund
 ---
 
 # Table of Contents
@@ -11,6 +12,8 @@ nav_order: 2
 {:toc}
 
 # About Consent Receipt Suite
+
+The Consent Receipt Suite by [Datafund](https://datafund.io/) is a suite of open source programs in [React](https://reactjs.org/) that you can integrate into your product to allow you to issue and work with [Kantara](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification) compliant consent receipts enabling also blockchain traceability, signing and storing them on [Swarm](https://swarm-guide.readthedocs.io/en/latest/introduction.html) decentralized storage.
 
 A general overview of the Consent Receipt Suite can also be found in the blog post [TLDR: Consent Receipt Suite — what is it about … ?](https://blog.datafund.net/tldr-consent-receipt-suite-what-is-it-about-88c8da9531b7), along with videos demoing its functionalities.
 
