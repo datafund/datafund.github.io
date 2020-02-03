@@ -107,8 +107,6 @@ run `npm run build`
 then upload it to Swarm through gateway (if you don't run your own swarm node)
 `swarm.exe --bzzapi https://swarm.fairdatasociety.org --defaultpath index.html --recursive up .\build\`
 
-Latest one is available at https://swarm.fairdatasociety.org/bzz:/821873b204bcfbcb33dc44a5caff691675b7a468d47bca82fa3f6e2470b39f9f/#/
-
 ## Putting it all together
 
 The modules can be used independently or in concert. The Sample Demo app was constructed with intent to demonstrate usability and as a reference implementation.
