@@ -91,7 +91,7 @@ A sample how to initialize fds.js and datareceipt.js. Sample consent is generate
 
 ### Sample node.js API server implementation for generating consent token (JWT)
 
-API server implementation is an example of a server for signing a proposed consent receipt and making it into a consent receipt JWT. It is runs in Node.js environment. **NOTE: It is not meant to be used in a production environemnt as-is, as it should not be considered secured enough. Consider it a reference implementation. Putting private key in .js script is NOT considereg secure**
+API server implementation is an example of a server for signing a proposed consent receipt and making it into a consent receipt JWT. It is runs in Node.js environment. **NOTE: It is not meant to be used in a production environemnt as-is, as it should not be considered secure enough. Consider it a reference implementation. Putting private key in .js script is NOT considered secure.**
 
 ### Consent Receipt Suite Demo
 
